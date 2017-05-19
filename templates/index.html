@@ -1,0 +1,60 @@
+{% include 'header.html' %}
+		<div class="container">
+		<div class="layout_left">
+			<span>Feeds</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<div style="margin-top:10px;">
+			<ul>
+				<a href="/"><li>Home</li></a>
+				{% if logged_in %}
+				<a href="/bookmarked-charts"><li>Bookmarked Charts</li></a>
+				{% else %}
+				<a href="#" id="bookmark_login"><li>Bookmarked Charts</li></a>
+				{% endif %}
+				{% if logged_in %}
+				<a href="/profile/{{user.given_name}}"><li>Your Charts</li></a>
+				{% endif %}
+			</ul>
+			<hr style="border:0;height:1px;background:#DDD;margin-top:3px;">
+			<ul style="margin-top:10px;">
+				<a href="/topic/agriculture"><li>Agriculture</li></a>
+				<a href="/topic/chemicals-resources"><li>Chemicals & Resources</li></a>
+				<a href="/topic/construction"><li>Construction</li></a>
+				<a href="/topic/consumer-goods-fmcg"><li>Consumer Goods & FMCG</li></a>
+				<a href="/topic/ecommerce"><li>E-Commerce</li></a>
+				<a href="/topic/energy-environment"><li>Energy & Environment</li></a>
+				<a href="/topic/finance"><li>Finance</li></a>
+				<a href="/topic/insurance-real-estate"><li>Insurance & Real Estate</li></a>
+				<a href="/topic/health"><li>Health</li></a>
+				<a href="/topic/internet"><li>Internet</li></a>
+				<a href="/topic/life"><li>Life</li></a>
+				<a href="/topic/media-advertisements"><li>Media & Advertisements</li></a>
+				<a href="/topic/metals"><li>Metals</li></a>
+				<a href="/topic/electronics"><li>Electronics</li></a>
+				<a href="/topic/travel-tourism"><li>Travel & Tourism</li></a>
+				<a href="/topic/hospitality"><li>Hospitality</li></a>
+				<a href="/topic/technology-Telecom"><li>Technology & Telecom</li></a>
+			</ul>
+		</div></div>
+		<div style="width:730px; height:500px; float:left; padding:6px;margin-left:20px;">
+			<span style="font-weight: 300;">Top Charts</span>
+			<hr style="border:0;height:1px;background:#DDD;margin-bottom:0px;">
+			<ul class="disp">
+				{% for chart in charts %}
+            		<li>
+						<a href="/{{chart.chart_title_trunc}}" style='color:rgba(80,80,80,1);'>
+            			<div class='liImg' style="background-image:url('/static/img/essential/{{chart.chart_type}}.png');">
+            			</div></a>
+            			<a href="/{{chart.chart_title_trunc}}" style='color:rgba(80,80,80,1);'><div class='liTitle'>{{chart.chart_title}}</div></a>
+            			<div class='liDesc'>{{chart.chart_description}}</div>
+            		</li>
+		        {% endfor %}
+			</ul>
+		</div>
+		</div>
+		{% include 'black_n_login_pan.html' %}
+		<script src="/static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/main.js"></script>
+		<script type="text/javascript" src="/static/js/search_bar.js"></script>
+	</body>
+</html>

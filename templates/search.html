@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cartographr, the free charts portal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/_jN4WEXYLggl.css" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body>	
+		<div class="bar" id="topbar">
+			<div style="width:100%;height:2px;background-color:#2B87DB;"></div>
+			<div id="insidebar">
+				<ul class="leftsided">
+					<li><a href="/" style="color:#2b87db;">Cartographr</a></li>
+					<li style="margin-left:40px;">
+						<form id="searchbox" action="">
+   							<input id="search" type="text" placeholder="Search for charts, people and topics">
+						</form>
+					</li>
+					<li>
+						<a href="/chart" class="button" id="crt_chart">Create Chart</a>
+					</li>
+				</ul>
+				<ul class="rightsided">
+					<li id="login">
+						<a id="signer" href="/login">Login</a>
+					</li>
+					<li>Help</li>
+				</ul>
+				<div id="queried" style="height:400px;width:530px;z-index:30;position:relative;top:50px;margin-left:155px;display:none;opacity:0;">
+					<ul>
+					</ul>
+				</div>
+			</div>			
+		</div>
+
+		<div class="container">
+		<div class="layout_left">
+			<span style="font-weight:300;">By Type</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<div style="margin-top:10px;">
+			<ul id="by_type_ul">
+				<a href="#" id="all"><li style="background:#2b87db;color:#FFF;">All Types</li></a>
+				<a href="#" id="chart"><li style="background:#2b87db;color:#FFF;">Charts</li></a>
+				<a href="#" id="topic"><li style="background:#2b87db;color:#FFF;">Topics</li></a>
+				<a href="#" id="profile"><li style="background:#2b87db;color:#FFF;">Profiles</li></a>
+			</ul>
+			<br>
+			<span style="font-weight:300;">By Chart Type</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<ul style="margin-top:10px;">
+				<a href="#"><li>Line Chart</li></a>
+				<a href="#"><li>Bar Chart</li></a>
+				<a href="#"><li>Column Chart</li></a>
+				<a href="#"><li>Scatter Chart</li></a>
+				<a href="#"><li>Pie Chart</li></a>
+				<a href="#"><li>Donut Chart</li></a>
+			</ul>
+		</div></div>
+		<div style="width:1000px; height:500px; float:left; padding:6px;left:270px;">
+			<span style="font-weight: 100;">Results for </span><span id="results-tab" style="font-weight:600"></span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<ul class="disp">
+			</ul>
+			</div>
+		</div>
+		<div id="blackpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;">
+		</div>
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+		<script type="text/javascript">var allCharts = myFunc({{charts|tojson}}); var user_data = myFunc({{user|tojson}});</script>
+		<script type="text/javascript" src="/static/js/search.js"></script>
+	</body>
+</html>

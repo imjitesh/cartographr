@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cartographr, the free charts portal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/_jN4WEXYLggl.css" />
+		<style>
+			table,td,th{
+				border:solid #999 1px;
+				border-collapse:collapse;
+			}
+			td,th{
+				padding:4px;
+				max-height:20px;
+				max-width:400px;
+				min-width:100px;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			.button{display:inline-block;height:20px;padding:5px;padding-left:12px;padding-right:12px;line-height:20px;border:0px;color:rgba(255,255,255,1);text-align:center;font-size:85%;border-radius:3px;cursor:pointer;background:rgba(90,90,90,1);}
+		</style>
+	</head>
+	<body>	
+		<div class="bar" id="topbar">
+			<div style="width:100%;height:2px;background-color:#2B87DB;"></div>
+			<div id="insidebar">
+				<ul class="leftsided">
+					<li><a href="/" style="color:#2b87db;">Xyzxyzxyzxy</a></li>
+					<li style="margin-left:40px;">
+						<form id="searchbox" action="">
+   							<input id="search" type="text" placeholder="Search for charts, people and topics">
+						</form>
+					</li>
+					<li>
+						<a href="./chart" class="button" id="crt_chart">Create Chart</a>
+					</li>
+
+				</ul>
+				<ul class="rightsided">
+					<li><a href="#">Login</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<input type="text" style="height:25px;margin-right:10px;width:931px;padding-left:5px;" placeholder="Search query here ..."><a class="button" id="query_but">Submit</a>
+			<br><br><br><br>
+			<div id="table_container" style="width:1024px;overflow-x:auto;max-height:400px;">
+			<table></tbody>
+			<tr><th>first_name</th><th>last_name</th><th>user_id</th><th>gender</th>
+			<th>charts</th><th>avatar</th><th>bookmarks</th><th>email</th></tr>
+			{% for user in data %}
+			<tr><td>{{user.first_name}}</td><td>{{user.last_name}}</td><td>{{user.user_id}}</td>
+			<td>{{user.gender}}</td><td>{{user.charts}}</td><td>{{user.AVATAR}}</td>
+			<td>{{user.bookmarks}}</td><td>{{user.EMAIL}}</td></tr>
+			{% endfor %}
+			</div>
+	</div>
+		<div id="blackpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;"></div>
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	</body>
+</html>

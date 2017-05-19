@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cartographr, the free charts portal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/css/_jN4WEXYLggl.css" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body>	
+		<div class="bar" id="topbar">
+			<div style="width:100%;height:2px;background-color:#2B87DB;"></div>
+			<div id="insidebar" ng-app="">
+				<ul class="leftsided">
+					<li><a href="/" style="color:#2b87db;">Cartographr</a></li>
+					<li style="margin-left:40px;">
+						<form id="searchbox" action="">
+   							<input id="search" type="text" ng-model="name" placeholder="Search for charts, people and topics">
+						</form>
+					</li>
+					<li>
+						<a href="/chart" class="button" id="crt_chart">Create Chart</a>
+					</li>
+				</ul>
+				<ul class="rightsided">
+					{% if logged_in %}
+					<a id="signer" href="#">
+						<li id="login" style="height:53px;">
+							<img id='avatar' src="{{user.picture}}" height='24' style='vertical-align:middle;border-radius:12px;margin-right:8px;'>{{user.given_name}}
+						</li>
+						<ul id="profile_div" style="z-index:20;width:152px;height:200px;margin-left:-55px;border:solid 1px rgb(200,200,200);margin-top:65px;display:none;">
+							<a href="/profile/{{user.email}}"><li>Profile</li></a>
+							<a href="/stats"><li>Stats</li></a>
+							<a href="/help"><li>Help</li></a>
+							<a href="/about"><li>About</li></a>
+							<a href="/logout"><li>Logout</li></a>
+						</ul>
+					</a>
+					{% else %}
+					<a id="loginer" href="/login"><li id="login">Login</li></a>
+					{% endif %}
+				</ul>
+				<div id="queried" style="height:400px;width:530px;z-index:30;position:relative;top:50px;margin-left:155px;display:none;opacity:0;">
+					<ul>
+					</ul>
+				</div>
+			</div>			
+		</div>
+
+		<div class="container">
+		<div class="layout_left">
+			<span style="font-weight:300;">Feeds</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<div style="margin-top:10px;">
+			<ul>
+				<a href="/"><li>Home</li></a>
+				<a href="/bookmarked-charts"><li>Bookmarked Charts</li></a>
+				<a href="/profile/{{user.given_name}}"><li>Your Charts</li></a>
+			</ul>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<ul style="margin-top:10px;">
+				<a href="/topic/agriculture"><li>Agriculture</li></a>
+				<a href="/topic/chemicals-resources"><li>Chemicals & Resources</li></a>
+				<a href="/topic/construction"><li>Construction</li></a>
+				<a href="/topic/consumer-goods-fmcg"><li>Consumer Goods & FMCG</li></a>
+				<a href="/topic/ecommerce"><li>E-Commerce</li></a>
+				<a href="/topic/energy-environment"><li>Energy & Environment</li></a>
+				<a href="/topic/finance"><li>Finance</li></a>
+				<a href="/topic/insurance-real-estate"><li>Insurance & Real Estate</li></a>
+				<a href="/topic/health"><li>Health</li></a>
+				<a href="/topic/internet"><li>Internet</li></a>
+				<a href="/topic/life"><li>Life</li></a>
+				<a href="/topic/media-advertisements"><li>Media & Advertisements</li></a>
+				<a href="/topic/metals"><li>Metals</li></a>
+				<a href="/topic/electronics"><li>Electronics</li></a>
+				<a href="/topic/travel-tourism"><li>Travel & Tourism</li></a>
+				<a href="/topic/hospitality"><li>Hospitality</li></a>
+				<a href="/topic/technology-Telecom"><li>Technology & Telecom</li></a>
+				<hr style="border:0;height:1px;background:#DDD;">
+				<a href="/topic/chloropleth"><li>Chloropleth</li></a>
+			</ul>
+		</div></div>
+		<div style="width:750px; height:500px; float:left; padding:6px;left:270px;">
+			<span style="font-weight: 300;">Bookmarked Charts</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+		</div>
+		</div>
+		<div id="blackpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;">
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/main.js"></script>
+	</body>
+</html>

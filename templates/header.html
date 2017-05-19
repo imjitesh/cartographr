@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cartographr, the free charts portal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/css/_jN4WEXYLggl.css" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<style>
+      .login{
+        text-align:left;padding-left:10px;width:260px;height:45px;font-size:14px;background:#FFF;margin:0 auto;line-height:45px;color:rgb(40,40,40);border-radius:2px;cursor:pointer;border:solid 1px rgb(245,245,245);
+      }
+      .login:hover{
+        background:rgb(245,245,245);
+      }
+      .login:active{
+        box-shadow: inset 1px 2px 2px 2px #EEE;
+      }
+    </style>
+	</head>
+	<body>
+		{% if logged_in %}
+		<ul id="profile_div" style="z-index:20;width:152px;height:200px;position:absolute;left:1060px;border:solid 1px rgb(200,200,200);margin-top:-20px;display:none;">
+							<a href="/profile/{{user.email}}"><li>Profile</li></a>
+							<a href="/stats"><li>Stats</li></a>
+							<a href="/help"><li>Help</li></a>
+							<a href="/about"><li>About</li></a>
+							<a href="/logout/home"><li>Logout</li></a>
+						</ul>
+						{% endif %}
+		<div class="bar" id="topbar">
+			<div style="width:100%;height:2px;background-color:#2B87DB;"></div>
+			<div id="insidebar">
+				<ul class="leftsided">
+					<li><a href="/" style="color:#2b87db;">Cartographr</a></li>
+					<li style="margin-left:40px;">
+						<form id="searchbox" action="">
+   							<input id="search" type="text" ng-model="name" placeholder="Search for charts, people and topics">
+						</form>
+					</li>
+					<li>
+						<a href="/chart" class="button" id="crt_chart">Create Chart</a>
+					</li>
+				</ul>
+				<ul class="rightsided">
+					{% if logged_in %}
+					<a id="signer" href="#">
+						<li id="login" style="height:58px;">
+							<img id='avatar' src="{{user.picture}}" height='24' style='vertical-align:middle;border-radius:12px;margin-right:8px;'>{{user.given_name}}
+						</li>
+						
+					</a>
+					{% else %}
+					<a id="loginer" href="#"><li id="login" style="height:58px;">Login</li></a>
+					{% endif %}
+				</ul>
+				<div id="queried" style="height:400px;width:480px;z-index:30;position:relative;top:50px;margin-left:172px;display:none;opacity:0;">
+					<ul>
+					</ul>
+				</div>
+			</div>			
+		</div>
+		

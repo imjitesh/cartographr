@@ -1,0 +1,33 @@
+<html>
+   <head>
+      <title>Angular JS Includes</title>
+      
+      <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+      
+   </head>
+   <body>
+      <table border = 1>
+         {% for chart in charts %}
+            <tr>
+                  <th>{{chart.chart_title}}</th>
+                  <td><a href="/{{ chart.chart_title_trunc }}">hello</a> </td>
+                  <td><img src="/static/img/essential/{{chart.chart_type}}.png"></img></td>
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>

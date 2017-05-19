@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link rel="stylesheet" href="static/css/_sVMEuft1dhR.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css" />
+		<style>
+      .login{
+        text-align:left;padding-left:10px;width:260px;height:45px;font-size:14px;background:#FFF;margin:0 auto;line-height:45px;color:rgb(40,40,40);border-radius:2px;cursor:pointer;border:solid 1px rgb(245,245,245);
+      }
+      .login:hover{
+        background:rgb(245,245,245);
+      }
+      .login:active{
+        box-shadow: inset 1px 2px 2px 2px #EEE;
+      }
+    </style>
+	</head>
+	<body>	
+		<div class="bar" id="topbar">
+			<div style="width:100%;height:2px;background-color:#2B87DB;"></div>
+			<div id="insidebar">
+				<ul class="leftsided">
+					<li><a href="/" style="color:#2b87db;">Cartographr</a></li>
+					<li style="margin-left:40px;">
+						<form id="searchbox" action="">
+   							<input id="search" type="text" placeholder="Search for charts, people and topics">
+						</form>
+					</li>
+					<li><a href="chart" class="button" id="crt_chart">Create Chart</a></li>
+					
+					<li style="margin-left:20px;"><a class="button" id="embed_chart" style="cursor:pointer;"><img src="static/img/essential2/embed.png" height=20 style="vertical-align:middle;margin-top:-3px;margin-right:5px;">Embed</a></li>
+				</ul>
+				<ul class="rightsided">
+					{% if logged_in %}
+					<a id="signer" href="#">
+						<li id="login" style="height:58px;">
+							<img id='avatar' src="{{user.picture}}" height='24' style='vertical-align:middle;border-radius:12px;margin-right:8px;'>{{user.given_name}}
+						</li>
+						<ul id="profile_div" style="z-index:20;width:152px;height:200px;margin-left:-55px;border:solid 1px rgb(200,200,200);margin-top:65px;display:none;">
+							<a href="/profile/{{user.email}}"><li>Profile</li></a>
+							<a href="/stats"><li>Stats</li></a>
+							<a href="/help"><li>Help</li></a>
+							<a href="/about"><li>About</li></a>
+							<a href="/logout/home"><li>Logout</li></a>
+						</ul>
+					</a>
+					{% else %}
+					<a id="loginer" href="#"><li id="login" style="height:58px;">Login</li></a>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="makeChart">
+				<p id="ctitle"></p>
+				<div id="chart">
+				</div>
+				<div id="chart-detail" class="chart-follow">
+					<p id="cdesc"></p>
+				</div>				
+				<div class="chart-follow" id="source-dialog">
+					<p>Sources</p>
+				</div>
+			</div>
+			<div id="rightner">
+				<span style="font-weight:300;">Related Charts</span>
+				<hr style="border:0;height:1px;background:#DDD;">
+				<ul class="disp">
+					{% for chart in relChart %}
+					<a href='/{{chart.chart_title_trunc}}'>
+						<li>
+							<div class='liImg' style="background-image: url('/static/img/essential/{{chart.chart_type}}.png');">
+							</div>
+							<div class='liTitle'>{{chart.chart_title}}</div>
+						</li>
+					</a>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div id="blackpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;"></div>
+		<div id="login_pan" style="width:100%;height:100vh;background:rgb(255,255,255);position:fixed;top:0px;z-index:30;opacity:0;display:none;">
+		<div class="container" style="width:650px; margin:0 auto; text-align:center;margin-top:70px;">
+			<h1 style="color:#2b87db;font-family: 'Kaushan Script', cursive;font-size:50px;">Cartographr</h1><br>
+      <h2 style="color:#AAA;">A place where charts are made and knowledge is shared.</h2>
+      <br>
+      <div class="inside" style="height:200px;">
+      <a href="#" id="login_pan_remove" style="color:#2b87db;font-size:14px;font-weight:800;">< Nevermind, go back</a>
+      <br /><br />
+      <a id="glogin" href=""><div class="login"><img src="/static/img/essential2/gplus.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with Google</div></a>
+      <br>
+      <div class="login" ><img src="/static/img/essential2/fb.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with Facebook</div>
+      <br>
+      <div class="login"><img src="/static/img/essential2/linkedin.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with LinkedIn</div>
+      <br>
+      <span style="font-size:14px;">- or -</span>
+      <br><br>
+      <div class="login"><img src="/static/img/essential2/email.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with Email</div>
+      </div>
+		</div>
+		</div>
+		<script src="static/js/d3.min.js"></script>
+  		<script src="static/js/c3.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+		<script type="text/javascript">var chart = myFunc({{chart|tojson}}); </script>
+		<script type="text/javascript" src="static/js/make.js"></script>
+	</body>
+</html>

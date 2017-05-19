@@ -1,0 +1,212 @@
+{% include 'header.html' %}
+		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="stylesheet" href="static/css/c3.css" />
+		<div class="container">
+			<div class="layout_left" id="leftner" style="position: relative;">
+				<span style="font-weight:300; font-size:17px;display:block; height:50px;line-height:50px;margin-top:-10px;margin-left:-10px;width:290px;padding-left:10px;color:#2b87db;">Set Up Your Data</span>
+				<hr style="border:0;height:1px;background:#DDD;margin-top:0px;">
+				<span>
+					Copy your data (including header row/column) in Excel and paste it in the sheet on the right.
+					<br><br>You can also upload the CSV file from your computer.
+					<br><br><br>
+					If you just want to try Cartographr, here‘s a list of some example datasets you can use:
+				</span>
+				<br><br>
+				<select id="dummy">
+					<option value="select">Select a Sample Dataset</option>
+					<option value="line">Line Chart (Literacy Growth in India)</option>
+					<option value="pie">Pie Chart (Accidents by Vehicles, India - 2015)</option>
+					<option value="stBar">Stacked Bar Chart</option>
+					<option value="col">Column Chart</option>
+				</select>
+				<div style="position:absolute; bottom:0px;width:280px;">
+					<input type="file" class="button lbutton" id="up_butt"/><label class="button lbutton" for="up_butt">Upload a .CSV or .XLS</label>
+					<a class="button rbutton" id="paste_but">Clear</a>
+				</div>
+			</div>
+			<div class="layout_left" id="leftner2" style="position: relative;">
+			<span style="font-weight:300; font-size:17px;display:block; height:50px;line-height:50px;margin-top:-10px;margin-left:-10px;width:290px;padding-left:10px;color:#2b87db;">Make sure the data looks right</span>
+			<hr style="border:0;height:1px;background:#DDD;margin-top:0px;">
+				<span>
+				Please make sure that data is interpreted correctly.
+				<br><br>
+				First row as label
+				<br></span><br>
+				<br><br>
+				<a class="button" id="transpose_butt">Transpose Dataset</a>
+				<div style="position:absolute; bottom:0px;width:280px;">
+				<a class="button" id="back1_butt">Back</a>
+				<a class="button" id="prcd1_butt">Proceed</a>
+			</div>
+			</div>
+			<div id="rightner22">
+				<table id="sheet">
+			</table>
+			</div>
+			<div id="leftner3" class="layout_left" style="position: relative;">
+				<div style="position:absolute; top:0px;width:100%;height:50px;border-bottom:solid 1px rgba(0,0,0,0.2);">
+					<a class="button2" id="ctype_butt" style="color:#2B87DB;width:97px;border-bottom: solid 3px #2B87DB;font-weight:700;">Chart Type</a>
+					<a class="button2" id="ref_butt" style="width:97px;">Customize</a>
+					<a class="button2" id="annt_butt" style="width:96px;">Annotate</a>
+				</div>
+				<div id="chart_list">
+					<ul id="charts_ul">
+						<br><span style="display:block;font-family: 'Arimo',sans-serif;font-size:14px;">Line</span>
+						<li id="line"><img src="static/img/essential/line.png"><br></li>
+						<li id="spline"><img src="static/img/essential/spline.png"><br></li>
+						<li id="line"><img src="static/img/essential/line.png"><br></li>
+						<br><span style="display:block;font-family: 'Arimo',sans-serif;font-size:14px;">Area</span>
+						<li id="area"><img src="static/img/essential/area.png"><br></li>
+						<li id="starea"><img src="static/img/essential/stacked-area.png"><br></li>
+						<br><span style="display:block;font-family: 'Arimo',sans-serif;font-size:14px;">Column</span>
+						<li id="col"><img src="static/img/essential/col.png"><br></li>
+						<li id="stcol"><img src="static/img/essential/stacked-col.png"><br></li>
+						<br><span style="display:block;font-family: 'Arimo',sans-serif;font-size:14px;">Bar</span>
+						<li id="bar"><img src="static/img/essential/bar.png"><br></li>
+						<li id="stbar"><img src="static/img/essential/stacked-bar.png"><br></li>
+						<br><span style="display:block;font-family: 'Arimo',sans-serif;font-size:14px;">Pie</span>
+						<li id="pie"><img src="static/img/essential/pie.png"><br></li>
+						<li id="donut"><img src="static/img/essential/donut.png"><br></li>
+						
+					</ul>
+				</div>
+				<div id="refine">
+    					<ul style="margin-bottom:10px;"><p>Configure Horizontal Axis</p><hr style="border:0;height:1px;background:#CCC;margin-top:5px;margin-left:0px;width:260px;">
+        					<li style="font-size:14px;margin-bottom:20px;">
+								<input type="checkbox" name="checkbox" id="x_grid" value="value" style="float:left;">
+								<label for="checkbox_id">&nbsp;Toggle Show/Hide</label>
+        					</li>
+        					<li style="font-size:14px;margin-bottom:20px;">Tick Count<hr style="border:0;height:1px;background:#FFF;margin-top:0px;">
+								<input type="range" id="tick-slide" min="1" step="1" />
+        					</li>
+    					</ul>
+    					<ul style="margin-bottom:10px;"><p>Configure Vertical Axis</p><hr style="border:0;height:1px;background:#CCC;margin-top:5px;width:260px;">
+        					<li style="font-size:14px;margin-bottom:20px;">
+                    			<input type="checkbox" name="checkbox" id="y_grid" value="value" style="float:left;">
+								<label for="checkbox_id">&nbsp;Toggle Show/Hide</label>
+							</li>
+							<li style="font-size:14px;margin-bottom:20px;">
+                    			Number Format
+                    			<select id="dpoints-visible" style="width:125px;float:right;margin-right:15px;height:30px;">
+                    					<option value="yes">Yes</option>
+                    					<option value="no">No</option>
+                    				</select>
+                    			
+                    		</li>
+                    		<li style="font-size:14px;margin-bottom:20px;">
+								<input type="checkbox" name="checkbox" id="y_line" value="value" style="float:left;">&nbsp;Add Static Line
+								<input type="text" name="desc" id="y_line_val" style="width:120px;float:right;margin-right:15px;height:20px;" disabled>
+								
+        					</li>
+    					</ul>
+    					<ul style="margin-bottom:10px;"><p>Chart</p><hr style="border:0;height:1px;background:#CCC;margin-top:5px;width:260px;">
+                    		<li style="font-size:14px;margin-bottom:20px;">
+                    			Legend Location<hr style="border:0;height:1px;background:#FFF;margin-top:0px;">
+                    			<select id="legend-location" style="width:100px;height:30px;">
+                    				<option value="bottom">Bottom</option>
+                    				<option value="right">Right</option>
+                    				<option value="Inset">Inset</option>
+                    			</select>
+        					</li>
+        					<li style="font-size:14px;margin-bottom:20px;">
+                    			Font<hr style="border:0;height:1px;background:#FFF;margin-top:0px;">
+                    			<select id="legend-location" style="width:100px;height:30px;">
+                    				<option value="bottom">Bottom</option>
+                    				<option value="right">Right</option>
+                    				<option value="Inset">Inset</option>
+                    			</select>
+        					</li>
+    					</ul>
+    					<ul style="margin-bottom:10px;"><p>Series</p><hr style="border:0;height:1px;background:#CCC;margin-top:5px;width:260px;">
+                    		<li style="font-size:14px;margin-bottom:20px;">
+                    				Color
+                    				<select id="dlabel-visible" style="width:60px;float:right;margin-right:15px;height:30px;">
+                    					<option value="yes">Yes</option>
+                    					<option value="no">No</option>
+                    				</select>
+                    		</li>
+        					<li style="font-size:14px;margin-bottom:20px;">
+                    				Data Label Visible: &nbsp;&nbsp;
+                    				<select id="dlabel-visible" style="width:60px;float:right;margin-right:15px;height:30px;">
+                    					<option value="yes">Yes</option>
+                    					<option value="no">No</option>
+                    				</select>
+                    		</li>
+                    		<li style="font-size:14px;margin-bottom:20px;">		
+                    				Data Points Visible: &nbsp;&nbsp;
+                    				<select id="dpoints-visible" style="width:60px;float:right;margin-right:15px;height:30px;">
+                    					<option value="yes">Yes</option>
+                    					<option value="no">No</option>
+                    				</select>
+                    		</li>
+    					</ul>
+				</div>
+				<div id="annotate">
+					<ul style="margin-bottom:10px;"><p>Chart</p><hr style="border:0;height:1px;background:#CCC;margin-top:5px;width:260px;">
+                    	<li style="font-size:14px;margin-bottom:20px;">
+                    		Title<hr style="border:0;height:1px;background:#FFF;margin-top:0px;">
+                    		<input type="text" name="desc" id="title_val" style="width:260px;height:22px;">
+        				</li>
+        				<li style="font-size:14px;margin-bottom:20px;">
+                    		Description<hr style="border:0;height:1px;background:#FFF;margin-top:0px;">
+                    		<input type="text" name="desc" id="desc_val" style="width:260px;height:22px;">
+        				</li>
+        				<li style="font-size:14px;margin-bottom:20px;">
+                    		Sources<hr style="border:0;height:1px;background:#FFF;margin-top:0px;">
+                    		<input type="text" name="desc" id="src_val" style="width:260px;height:22px;">
+        				</li>
+    				</ul>
+				</div>
+				<div id="design">
+					Line 1 Color: &nbsp;&nbsp;&nbsp;<input type="color" class="data_color" id="1"><br><br>
+					Line 2 Color: &nbsp;&nbsp;&nbsp;<input type="color" class="data_color" id="2"><br><br>
+					Background Color: &nbsp;&nbsp;&nbsp;<input type="color" id="bg_color"><br><br>
+					<a class="button" id="reset_color">Reset Color</a><br><br>
+					Zoom Level: &nbsp;&nbsp;&nbsp;<input type="range" id="z_level" value="0" min="0" max="6">
+				</div>
+				<div style="position:absolute; bottom:0px;width:285px;">
+					<a class="button" id="back2_butt">Back</a>
+					<a class="button" id="pub_butt">Publish & Embed</a>
+				</div>
+			</div>
+
+			<div id="rightner3">
+			<div id="title">Chart Title</div>
+				<div id="chart"></div>
+			</div>
+		</div>
+		<div id="blackpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;"></div>
+		<div id="login_pan" style="width:100%;height:100vh;background:rgb(255,255,255);position:fixed;top:0px;z-index:30;opacity:0;display:none;">
+		<div class="container" style="width:650px; margin:0 auto; text-align:center;margin-top:70px;">
+			<h1 style="color:#2b87db;font-family: 'Kaushan Script', cursive;font-size:50px;">Cartographr</h1><br>
+      <h2 style="color:#AAA;">A place where charts are made and knowledge is shared.</h2>
+      <br>
+      <div class="inside" style="height:200px;">
+      <a href="#" id="login_pan_remove" style="color:#2b87db;font-size:14px;font-weight:800;">< Nevermind, go back</a>
+      <br /><br />
+      <a href="/googlelogin/chart"><div class="login"><img src="/static/img/essential2/gplus.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with Google</div></a>
+      <br>
+      <div class="login" ><img src="/static/img/essential2/fb.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with Facebook</div>
+      <br>
+      <div class="login"><img src="/static/img/essential2/linkedin.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with LinkedIn</div>
+      <br>
+      <span style="font-size:14px;">- or -</span>
+      <br><br>
+      <div class="login"><img src="/static/img/essential2/email.svg" height="30" style="vertical-align:middle;margin-right:30px;">Log in with Email</div>
+      </div>
+		</div>
+		</div>
+		<!-- Scripts -->
+		<script type="text/javascript">var check_login = "{{logged_in}}"; </script>
+		<script type="text/javascript" src="static/js/d3.min.js"></script>
+  		<script type="text/javascript" src="static/js/c3.min.js"></script>
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/readCSV.js"></script>
+		<script type="text/javascript" src="static/js/tableStuff.js"></script>
+		<script type="text/javascript" src="static/js/pltChart.js"></script>
+		<script type="text/javascript" src="static/js/submain.js"></script>
+		<script type="text/javascript" src="static/js/transData.js"></script>
+		<script type="text/javascript" src="static/js/tableFuncs.js"></script>
+		<script type="text/javascript" src="/static/js/search_bar.js"></script>
+	</body>
+</html>
