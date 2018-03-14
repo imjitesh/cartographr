@@ -7,23 +7,23 @@ ul{list-style-type: none;}
 a {text-decoration: none;}
 .bar{width:100%;margin: 0 auto;}
 #topbar{position: fixed;top:0;z-index:20;height:60px;background:rgba(255,255,255,1);border-bottom: solid 1px rgba(230,230,230,1);}
-#insidebar{width:1024px;margin: 0 auto;height:60px;line-height:60px;}
+#insidebar{width:1280px;margin: 0 auto;height:60px;line-height:60px;}
 #insidebar ul.leftsided{float:left;}
-#insidebar ul.leftsided > li:first-child{padding-left:0px;color:rgba(0,128,0,1);font-size:23px;}
+#insidebar ul.leftsided > li:first-child{padding-left:0px;color:rgba(0,128,0,1);font-size:23px;width:250px;}
 #insidebar ul li{font-weight:300;float: left;color:rgba(10,10,10,1);color: rgba(80,80,80,1);font-size: 13px;}
 #insidebar ul li a{color:rgba(80,80,80,1);}
-#searchbox input[type="text"]{background: rgba(170,170,170,0.1);border: solid 1px rgba(220,220,220,1);color: #777;width:450px;height:15px;font-size:14px;padding:6px 15px 6px 15px;border-right:0px;border-radius:2px 0px 0px 2px;-webkit-transition: all 0.15s;transition: all 0.15s;}
+#searchbox input[type="text"]{background: rgba(170,170,170,0.1);border: solid 1px rgba(220,220,220,1);color: #777;width:450px;height:14px;font-size:14px;padding:6px 15px 6px 15px;border-right:0px;border-radius:2px 0px 0px 2px;-webkit-transition: all 0.15s;transition: all 0.15s;}
 #searchbox input[type="text"]:focus{background: rgba(251,251,251,0.6);}
 #insidebar ul.rightsided{float:right;padding-left:0px;}
 #insidebar ul.rightsided li{padding-left:15px;padding-right:15px;cursor:pointer;}
 #insidebar ul.rightsided li:hover{background:#EEE;}
-.button{display: inline-block;width:85px;height:15px;margin:0px;padding:6px;border:solid 1px rgba(220,220,220,1);background: rgba(255,255,255,1);border-radius: 0px 2px 2px 0px;color: rgb(60,60,60);font-size:13px;line-height:15px;-webkit-transition: all 0.15s;transition: all 0.15s;font-weight:300;text-align: center;}
+.button{display: inline-block;width:85px;height:14px;margin:0px;padding:6px;border:solid 1px rgba(220,220,220,1);background: rgba(255,255,255,1);border-radius: 0px 2px 2px 0px;color: rgb(60,60,60);font-size:13px;line-height:15px;-webkit-transition: all 0.15s;transition: all 0.15s;font-weight:300;text-align: center;}
 .button:hover{border:solid 1px rgba(120,120,120,1);cursor:pointer;}
-.container{width:1024px;margin:0 auto;margin-top:90px;text-align:center;}
+.container{width:1280px;margin:0 auto;margin-top:90px;text-align:center;}
 #rightner{
 	display: inline-block;
 	height:610px;
-	width: 240px;
+	width: 300px;
 	background: rgba(255,255,255,1);
 	border:solid 0px rgba(0,0,0,0.2);
 	vertical-align: top;
@@ -69,7 +69,7 @@ a {text-decoration: none;}
 #chart{
 	display: inline-block;
 	height:450px;
-	width: 758px;
+	width: 958px;
 	background: rgba(255,255,255,1);
 	border:solid 1px rgba(0,0,0,0.2);
 	border-top:0;
@@ -168,7 +168,7 @@ a {text-decoration: none;}
 }
 .makeChart{
 	display: inline-block;
-	width: 760px;
+	width: 960px;
 	vertical-align: top;
 	margin-top:27px;
 }

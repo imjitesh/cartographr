@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Cartographr, the free charts portal</title>
+		<title>Cartographr, the free charts portalsdsd</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/static/css/_jN4WEXYLggl.css" />
-		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<!--<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">-->
 		<style>
       .login{
         text-align:left;padding-left:10px;width:260px;height:45px;font-size:14px;background:#FFF;margin:0 auto;line-height:45px;color:rgb(40,40,40);border-radius:2px;cursor:pointer;border:solid 1px rgb(245,245,245);
@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		{% if logged_in %}
-		<ul id="profile_div" style="z-index:20;width:152px;height:200px;position:absolute;left:1060px;border:solid 1px rgb(200,200,200);margin-top:-20px;display:none;">
+		<ul id="profile_div" style="z-index:20;width:152px;height:200px;position:absolute;right:50px;border:solid 1px rgb(200,200,200);margin-top:-20px;display:none;background:#FFF;">
 							<a href="/profile/{{user.email}}"><li>Profile</li></a>
 							<a href="/stats"><li>Stats</li></a>
 							<a href="/help"><li>Help</li></a>
